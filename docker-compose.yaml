@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+
+   open-api-doc:
+      image: rapidoc:latest
+      ports:
+        - "8080:80"
+      environment:
+        - "TMPL_RAPIDOC_API_MANIFEST_URL=./specs/manifest.json"
+        - "TMPL_RAPIDOC_HEADER_COLOR=#003449"
+        - "TMPL_RAPIDOC_PRIMARY_COLOR=#00B9FF"
+        - "TMPL_RAPIDOC_LAYOUT=row"
+        - "TMPL_RAPIDOC_API_LIST_STYLE=group-by-path"
+        - "TMPL_RAPIDOC_RENDER_STYLE=view"
+      volumes:
+        - ../specs:/usr/share/nginx/html/specs
+

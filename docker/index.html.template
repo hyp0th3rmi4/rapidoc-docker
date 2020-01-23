@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>REST API Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+   <rapi-doc
+      id = "thedoc"
+
+      spec-url = "${TMPL_RAPIDOC_SPEC_URL}"
+      server-url="${TMPL_RAPIDOC_SERVER_URL}"
+      default-api-server="${TMPL_RAPIDOC_DEFAULT_API_SERVER}"
+
+      theme = "${TMPL_RAPIDOC_THEME}"
+      heading-text = "${TMPL_RAPIDC_HEADING_TEXT}"
+      bg-color = "${TMPL_RAPIDOC_BG_COLOR}"
+      text-color = "${TMPL_RAPIDOC_TEXT_COLOR}"
+      header-color = "${TMPL_RAPIDOC_HEADER_COLOR}"
+      primary-color = "${TMPL_RAPIDOC_PRIMARY_COLOR}"
+      regular-font = "${TMPL_RAPIDOC_REGULAR_FONT}"
+      mono-font = "${TMPL_RAPIDOC_MONO_FONT}"
+
+      layout = "${TMPL_RAPIDOC_LAYOUT}"
+      sort-tags = "${TMPL_RAPIDOC_SORT_TAGS}"
+      goto-path = "${TMPL_RAPIDOC_GOTO_PATH}"
+      render-style = "${TMPL_RAPIDOC_RENDER_STYLE}"
+      schema-style = "${TMPL_RAPIDOC_SCHEMA_STYLE}"
+      schema-expand-level	= "${TMPL_RAPIDOC_SCHEMA_EXPAND_LEVEL}"
+      schema-description-expanded = "${TMPL_RAPIDOC_SCHEMA_DESCRIPTION_EXPANDED}"
+      default-schema-tab = "${TMPL_RAPIDOC_DEFAULT_SCHEMA_TAB}"
+
+      api-key-name = "${TMPL_RAPIDOC_API_KEY_NAME}"
+      api-key-location = "${TMPL_RAPIDOC_API_KEY_LOCATION}"
+      api-key-value = "${TMPL_RAPIDOC_API_KEY_VALUE}"
+      api-list-style= "${TMPL_RAPIDOC_API_LIST_STYLE}"
+
+      show-header = "${TMPL_RAPIDOC_SHOW_HEADER}"
+      show-info = "${TMPL_RAPIDOC_SHOW_INFO}"
+
+      allow-authentication = "${TMPL_RAPIDOC_ALLOW_AUTHENTICATION}"
+      allow-search = "${TMPL_RAPIDOC_ALLOW_SEARCH}"
+      allow-try = "${TMPL_RAPIDOC_ALLOW_TRY}"
+      allow-api-list-style-selection = "${TMPL_RAPIDOC_ALLOW_API_LIST_STYLE_SELECTION}"
+      allow-spec-file-load = "${TMPL_RAPIDOC_ALLOW_SPEC_FILE_LOAD}"
+      allow-spec-url-load = "${TMPL_RAPIDOC_ALLOW_SPEC_URL_LOAD}"
+      allow-server-selection = "${TMPL_RAPIDOC_ALLOW_SERVER_SELECTION}"
+   >
+      <img slot="logo" src="${TMPL_RAPIDOC_LOGO_URL}">
+      <div slot="header" id="apispecs" style="display:flex; margin:0px 16px; justify-content:right; flex-direction: row-reverse; flex:1;">
+         <style>
+            .spec-item {
+               padding: 4px 2px;
+            }
+            .spec-header {
+               padding: 5px 16px;
+               border-radius: 2px;
+               border: 2px solid var(--header-color-darker);
+               text-transform: uppercase;
+               font-weight: bold;
+               font-size: var(--font-size-small);
+               background-color: var(--header-color-darker);
+               display: inline;
+               margin: 3px;
+            }
+            .spec-header.active {
+               border: 2px solid var(--primary-color);
+               background-color: var(--primary-color);
+               color: var(--primary-color-invert);
+            }
+            .spec-message {
+               border: 2px solid red;
+               background-color: red;
+               color: white;
+               margin: 3px;
+               padding: 6px 16px;
+               font-size: var(--font-size-small);	      
+            }
+            .spec-title {
+               font-weight: bold
+            }
+            .spec-description {
+            
+            }
+         </style>
+      </div>
+   </rapi-doc>
+
+  <script type="text/javascript" src="api-selector.js"></script>
+  <script type="text/javascript" src="rapidoc-min.js"></script>
+  <script type="text/javascript">
+      loadManifest("$TMPL_RAPIDOC_API_MANIFEST_URL", renderManifest, renderError);
+  </script>
+</body>
+
+</html>
